@@ -7,6 +7,8 @@ public class GameController : MonoBehaviour
     PlayerInput input = new PlayerInput();
     PlayerMover mover = new PlayerMover();
 
+    [SerializeField] CameraHorizontalForward cameraHorizontalForward;
+
     [SerializeField] PlayerView view;
 
     void Awake()
@@ -16,7 +18,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        mover.Move(input.axisVector, Vector3.forward);
+        mover.Move(input.axisVector, cameraHorizontalForward.horizontalForward);
         view.ApplyPosition();
     }
 }

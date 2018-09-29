@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c8d85e2d18f417fbc08f2687e1a8c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraHorizontalForward: {fileID: 282840812}
   view: {fileID: 1409311750}
 --- !u!4 &271380709
 Transform:
@@ -229,6 +230,7 @@ GameObject:
   - component: {fileID: 282840814}
   - component: {fileID: 282840813}
   - component: {fileID: 282840811}
+  - component: {fileID: 282840812}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -243,6 +245,17 @@ AudioListener:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 282840810}
   m_Enabled: 1
+--- !u!114 &282840812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 282840810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4573560067aa04a01800dcbfb75a7733, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &282840813
 Camera:
   m_ObjectHideFlags: 0
@@ -518,4 +531,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c8d85e2d18f417fbc08f2687e1a8c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraHorizontalForward: {fileID: 282840812}
   view: {fileID: 1409311750}
