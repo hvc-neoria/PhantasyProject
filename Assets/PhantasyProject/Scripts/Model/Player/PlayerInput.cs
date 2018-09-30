@@ -6,7 +6,11 @@ using jp.hateblo.neoria.Utility;
 public class PlayerInput
 {
 
-    const string hAxisName = "Horizontal", vAxisName = "Vertical";
+    const string hAxisName = "Horizontal";
+    const string vAxisName = "Vertical";
+    const string hSubAxisName = "SubHorizontal";
+    const string vSubAxisName = "SubVertical";
+
     public Vector2 axisVector
     {
         get
@@ -15,6 +19,17 @@ public class PlayerInput
                     Input.GetAxis(hAxisName),
                     Input.GetAxis(vAxisName)
                 );
+        }
+    }
+
+    public Vector2 subAxisVector
+    {
+        get
+        {
+            return new Vector2(
+                Input.GetAxis(hSubAxisName),
+                Input.GetAxis(vSubAxisName)
+            );
         }
     }
 }

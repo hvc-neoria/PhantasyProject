@@ -8,6 +8,7 @@ public class PlayerMover
 
     const float distancePerSec = 5f;
 
+    // 引数にlastPositionを追加して、状態変数をpositionにしてもいいかも
     public void Move(Vector2 input, Vector3 direction)
     {
         // todo NavMesh仕様にしたい

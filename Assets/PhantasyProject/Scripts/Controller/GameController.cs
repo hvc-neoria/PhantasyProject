@@ -5,20 +5,30 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     PlayerInput input = new PlayerInput();
-    PlayerMover mover = new PlayerMover();
+    PlayerMover playerMover = new PlayerMover();
+    [SerializeField] Transform playerTrans;
 
     [SerializeField] CameraHorizontalForward cameraHorizontalForward;
+    CameraMover cameraMover = new CameraMover();
 
-    [SerializeField] PlayerView view;
+    [SerializeField] PlayerView playerView;
+    [SerializeField] CameraView cameraView;
 
     void Awake()
     {
-        view.mover = mover;
+        playerView.mover = playerMover;
+        cameraView.mover = cameraMover;
     }
 
     void Update()
     {
-        mover.Move(input.axisVector, cameraHorizontalForward.horizontalForward);
-        view.ApplyPosition();
+        playerMover.Move(input.axisVector, cameraHorizontalForward.horizontalForward);
+        playerView.ApplyPosition();
+    }
+
+    void LateUpdate()
+    {
+        cameraMover.Move(playerTrans.position);
+        cameraView.ApplyPosition();
     }
 }
