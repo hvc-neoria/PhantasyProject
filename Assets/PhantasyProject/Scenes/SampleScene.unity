@@ -207,6 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTrans: {fileID: 1409311749}
   cameraHorizontalForward: {fileID: 282840812}
+  cameraTrans: {fileID: 282840814}
   playerView: {fileID: 1409311750}
   cameraView: {fileID: 282840815}
 --- !u!4 &271380709

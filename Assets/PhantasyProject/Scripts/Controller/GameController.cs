@@ -9,7 +9,9 @@ public class GameController : MonoBehaviour
     [SerializeField] Transform playerTrans;
 
     [SerializeField] CameraHorizontalForward cameraHorizontalForward;
+    [SerializeField] Transform cameraTrans;
     CameraMover cameraMover = new CameraMover();
+    CameraRotator cameraRotator = new CameraRotator();
 
     [SerializeField] PlayerView playerView;
     [SerializeField] CameraView cameraView;
@@ -18,6 +20,7 @@ public class GameController : MonoBehaviour
     {
         playerView.mover = playerMover;
         cameraView.mover = cameraMover;
+        cameraView.rotator = cameraRotator;
     }
 
     void Update()
@@ -28,7 +31,9 @@ public class GameController : MonoBehaviour
 
     void LateUpdate()
     {
-        cameraMover.Move(playerTrans.position);
+        cameraMover.Move(playerTrans.position + Vector3.up * PlayerParameter.lookedHeight, input.subAxisVector);
         cameraView.ApplyPosition();
+        cameraRotator.LookAt(cameraTrans.position, playerTrans.position + Vector3.up * PlayerParameter.lookedHeight);
+        cameraView.ApplyRotation();
     }
 }

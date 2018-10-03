@@ -6,6 +6,7 @@ public class CameraView : MonoBehaviour
 {
 
     public CameraMover mover { get; set; }
+    public CameraRotator rotator { get; set; }
 
     Transform myTrans;
 
@@ -15,6 +16,10 @@ public class CameraView : MonoBehaviour
     }
     public void ApplyPosition()
     {
-        myTrans.position = mover.hoge;
+        myTrans.position = mover.position;
+    }
+    public void ApplyRotation()
+    {
+        myTrans.rotation = rotator.rotation;
     }
 }
