@@ -5,39 +5,23 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     PlayerInput input = new PlayerInput();
-    PlayerMover playerMover = new PlayerMover();
-    PlayerRotator playerRotator = new PlayerRotator();
-    [SerializeField] Transform playerTrans;
 
-    [SerializeField] CameraHorizontalForward cameraHorizontalForward;
-    [SerializeField] Transform cameraTrans;
-    CameraMover cameraMover = new CameraMover();
-    CameraRotator cameraRotator = new CameraRotator();
-
-    [SerializeField] PlayerView playerView;
-    [SerializeField] CameraView cameraView;
-
-    void Awake()
-    {
-        playerView.rotator = playerRotator;
-        playerView.mover = playerMover;
-        cameraView.mover = cameraMover;
-        cameraView.rotator = cameraRotator;
-    }
+    [SerializeField] PlayerFacade player;
+    [SerializeField] CameraFacade cam;
 
     void Update()
     {
-        playerRotator.LookAt(input.axisVector, cameraHorizontalForward.horizontalForward);
-        playerView.ApplyRotation();
-        playerMover.Move(input.axisVector, cameraHorizontalForward.horizontalForward);
-        playerView.ApplyPosition();
+        player.rotator.LookAt(input.axisVector, cam.horizontalForward.horizontalForward);
+        player.view.ApplyRotation();
+        player.mover.Move(input.axisVector, cam.horizontalForward.horizontalForward);
+        player.view.ApplyPosition();
     }
 
     void LateUpdate()
     {
-        cameraMover.Move(playerTrans.position + Vector3.up * PlayerParameter.lookedHeight, input.subAxisVector);
-        cameraView.ApplyPosition();
-        cameraRotator.LookAt(cameraTrans.position, playerTrans.position + Vector3.up * PlayerParameter.lookedHeight);
-        cameraView.ApplyRotation();
+        cam.mover.Move(player.trans.position + Vector3.up * PlayerParameter.lookedHeight, input.subAxisVector);
+        cam.view.ApplyPosition();
+        cam.rotator.LookAt(cam.trans.position, player.trans.position + Vector3.up * PlayerParameter.lookedHeight);
+        cam.view.ApplyRotation();
     }
 }
