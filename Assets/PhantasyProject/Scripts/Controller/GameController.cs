@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour
 {
     PlayerInput input = new PlayerInput();
     PlayerMover playerMover = new PlayerMover();
+    PlayerRotator playerRotator = new PlayerRotator();
     [SerializeField] Transform playerTrans;
 
     [SerializeField] CameraHorizontalForward cameraHorizontalForward;
@@ -18,6 +19,7 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
+        playerView.rotator = playerRotator;
         playerView.mover = playerMover;
         cameraView.mover = cameraMover;
         cameraView.rotator = cameraRotator;
@@ -25,6 +27,8 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+        playerRotator.LookAt(input.axisVector, cameraHorizontalForward.horizontalForward);
+        playerView.ApplyRotation();
         playerMover.Move(input.axisVector, cameraHorizontalForward.horizontalForward);
         playerView.ApplyPosition();
     }

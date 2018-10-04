@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerView : MonoBehaviour
 {
     public PlayerMover mover { get; set; }
+    public PlayerRotator rotator { get; set; }
 
     Transform myTrans;
 
@@ -16,5 +17,9 @@ public class PlayerView : MonoBehaviour
     public void ApplyPosition()
     {
         myTrans.position += mover.moveVector;
+    }
+    public void ApplyRotation()
+    {
+        myTrans.rotation = rotator.rotation;
     }
 }
