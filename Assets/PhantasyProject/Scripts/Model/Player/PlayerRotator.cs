@@ -13,6 +13,6 @@ public class PlayerRotator
             return;
         }
         var inputVector3 = new Vector3(input.x, 0, input.y);
-        rotation = Quaternion.LookRotation(direction, Vector3.up) * Quaternion.LookRotation(inputVector3, Vector3.up);
+        rotation = Quaternion.LookRotation(direction) * Quaternion.LookRotation(inputVector3);
     }
 }

@@ -13,6 +13,6 @@ public class PlayerMover
     {
         // todo NavMesh仕様にしたい
         var inputVector3 = new Vector3(input.x, 0, input.y);
-        moveVector = Quaternion.LookRotation(direction, Vector3.up) * inputVector3 * Time.deltaTime * distancePerSec;
+        moveVector = Quaternion.LookRotation(direction) * inputVector3 * Time.deltaTime * distancePerSec;
     }
 }

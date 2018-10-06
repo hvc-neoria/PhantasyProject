@@ -9,6 +9,6 @@ public class CameraRotator
     public void LookAt(Vector3 pos, Vector3 targetPos)
     {
         Vector3 dir = targetPos - pos;
-        rotation = Quaternion.LookRotation(dir, Vector3.up);
+        rotation = Quaternion.LookRotation(dir);
     }
 }
