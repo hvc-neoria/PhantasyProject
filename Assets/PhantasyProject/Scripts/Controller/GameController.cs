@@ -6,8 +6,14 @@ public class GameController : MonoBehaviour
 {
     PlayerInput input = new PlayerInput();
 
-    [SerializeField] PlayerFacade player;
-    [SerializeField] CameraFacade cam;
+    PlayerFacade player;
+    CameraFacade cam;
+
+    void Awake()
+    {
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerFacade>();
+        cam = GameObject.FindWithTag("MainCamera").GetComponent<CameraFacade>();
+    }
 
     void Update()
     {
