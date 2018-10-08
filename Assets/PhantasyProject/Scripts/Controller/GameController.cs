@@ -17,6 +17,18 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+        if (input.isTalkable)
+        {
+            var col = player.focusArea.nearestCollider;
+            if (col)
+            {
+                var iReactive = col.GetComponent<IReactive>();
+                if (iReactive != null)
+                {
+                    iReactive.React();
+                }
+            }
+        }
         player.rotator.LookAt(input.axisVector, cam.horizontalForward.horizontalForward);
         player.view.ApplyRotation();
         player.mover.Move(input.axisVector, cam.horizontalForward.horizontalForward);

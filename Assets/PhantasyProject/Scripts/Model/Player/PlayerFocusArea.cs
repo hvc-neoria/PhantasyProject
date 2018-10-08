@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerFocusArea : MonoBehaviour
 {
     const string tagName = "FocusTarget";
+    Transform trans;
     public Collider nearestCollider
     {
         get
@@ -13,7 +14,7 @@ public class PlayerFocusArea : MonoBehaviour
             float min = 0;
             foreach (var col in colliders)
             {
-                float dis = Vector3.Distance(transform.position, col.transform.position);
+                float dis = Vector3.Distance(trans.position, col.transform.position);
                 if (!result)
                 {
                     min = dis;
@@ -29,6 +30,11 @@ public class PlayerFocusArea : MonoBehaviour
         }
     }
     List<Collider> colliders = new List<Collider>();
+
+    void Awake()
+    {
+        trans = transform;
+    }
 
     void OnTriggerEnter(Collider collider)
     {

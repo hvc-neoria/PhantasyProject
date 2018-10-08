@@ -205,8 +205,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c8d85e2d18f417fbc08f2687e1a8c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1409311751}
-  cam: {fileID: 282840816}
 --- !u!4 &271380709
 Transform:
   m_ObjectHideFlags: 0
@@ -807,6 +805,7 @@ GameObject:
   - component: {fileID: 2046869703}
   - component: {fileID: 2046869702}
   - component: {fileID: 2046869701}
+  - component: {fileID: 2046869705}
   m_Layer: 0
   m_Name: FocusObject1
   m_TagString: FocusTarget
@@ -881,3 +880,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2046869705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2046869700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ccf0404cace04bd99f7707a2096a6b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

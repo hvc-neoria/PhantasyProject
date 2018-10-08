@@ -5,11 +5,11 @@ using jp.hateblo.neoria.Utility;
 
 public class PlayerInput
 {
-
     const string hAxisName = "Horizontal";
     const string vAxisName = "Vertical";
     const string hSubAxisName = "SubHorizontal";
     const string vSubAxisName = "SubVertical";
+    public bool isTalkable { get { return Input.GetButtonDown("Fire1"); } }
 
     public Vector2 axisVector
     {
